@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from datetime import datetime
 
 
 class Car(ABC):
@@ -8,3 +9,6 @@ class Car(ABC):
     @abstractmethod
     def needs_service(self):
         pass
+
+    def check(self,service_threshold_date):
+        return service_threshold_date < datetime.today().date() or self.engine_should_be_serviced()
